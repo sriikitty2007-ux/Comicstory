@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        ComicCraft — AI Comic Story Creator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+<main class="container">
+
+    <section class="hero">
+
+        <div>
+
+            <span class="badge">
+                AI COMIC CREATOR
+            </span>
+
+            <h1>
+                Turn an idea into a comic.
+            </h1>
+
+            <p>
+                Create a five-panel story with narration,
+                dialogue, illustrations and a downloadable PDF.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    {% if error %}
+
+    <div class="alert error">
+        {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    {% if demo_mode %}
+
+    <div class="alert info">
+
+        Demo Mode is ON.
+
+        You can test the complete application
+        without API keys.
+
+    </div>
+
+    {% endif %}
+
+
+    <form
+        class="card form-card"
+        action="/generate"
+        method="post"
+    >
+
+        <label>
+
+            Story Prompt
+
+            <textarea
+                name="story_prompt"
+                required
+                minlength="5"
+                placeholder="A brave fox exploring an enchanted forest..."
+            ></textarea>
+
+        </label>
+
+
+        <div class="grid">
+
+            <label>
+
+                Main Character Name
+
+                <input
+                    name="character_name"
+                    required
+                    value="Ari"
+                >
+
+            </label>
+
+
+            <label>
+
+                Setting
+
+                <select name="setting">
+
+                    <option>
+                        Enchanted forest
+                    </option>
+
+                    <option>
+                        School
+                    </option>
+
+                    <option>
+                        Future city
+                    </option>
+
+                    <option>
+                        Outer space
+                    </option>
+
+                    <option>
+                        Underwater kingdom
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Story Tone
+
+                <select name="tone">
+
+                    <option>
+                        funny
+                    </option>
+
+                    <option>
+                        light-hearted
+                    </option>
+
+                    <option>
+                        dramatic
+                    </option>
+
+                    <option>
+                        poetic
+                    </option>
+
+                    <option>
+                        mysterious
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Art Style
+
+                <select name="art_style">
+
+                    <option>
+                        comic book
+                    </option>
+
+                    <option>
+                        anime
+                    </option>
+
+                    <option>
+                        pixel art
+                    </option>
+
+                    <option>
+                        watercolor
+                    </option>
+
+                    <option>
+                        realistic
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <button
+            class="button"
+            type="submit"
+        >
+            Create My Comic
+        </button>
+
+    </form>
+
+
+    <footer>
+
+        <a href="/docs">
+            API Docs
+        </a>
+
+        <span>•</span>
+
+        <a href="/health">
+            Health Check
+        </a>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
